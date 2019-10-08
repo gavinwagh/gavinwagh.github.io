@@ -26,11 +26,27 @@ saveUser = function (formDetails){
   //set the user name and pwd into a properties file
 }
 
-function showUser(){
+function showUserOld(){
   //read username and pwd;
   var myReader = new FileReader();
   myReader.onload = function(e){
     var text = myReader.result;
   }
   console.log("userDetails: " + myReader.readAsText("userDetails.json"));
-}
+};
+
+function showUser() {
+  //read username and pwd;
+    var text = '{"username" : "gavin","password" : "password"}';
+    //JSON.parse(this.responseText);
+    var user = JSON.parse(text);
+    console.log("userDetails: " + user + "username: " + user.username);
+  }
+
+//$.getJSON("userDetails.json", function(result){
+        //var text = "";//JSON.parse(userDetails);
+        //$.getJSON('userDetails.json', function(data){
+        //  text = data;
+        //});
+  //      console.log("userDetails: " + text);
+  //    });
