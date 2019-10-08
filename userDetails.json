@@ -1,14 +1,6 @@
-{users:
-  [
+{"users":
     {
-      username : "gavin",
-      password : "password"
+      "username" : "gavin",
+      "password" : "password"
     }
-  ],
-  [
-    {
-      username : "atharva",
-      password : "password"
-    }
-  ]
 }
