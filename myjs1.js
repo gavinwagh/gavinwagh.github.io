@@ -15,7 +15,8 @@ moreText.style.display = "inline";
 }
 }
 
-var text;
+var text = '{"users":[{"username" : "gavin","password" : "Password123#"}, {"username" : "atharva","password" : "Password123#"}]}';
+var logindata = '{"users":{"gavin" : "Password123#", "atharva" : "Password123#"}}';
 function myFunction2() {
 var dots = document.getElementById("dots2");
 var moreText = document.getElementById("more2");
@@ -40,17 +41,42 @@ var signUpbtn = document.getElementById("signUpbtn");
   //on submit call saveUser(formDetails)
 //}
 
-saveUser = function (formDetails){
-  //set the user name and pwd into a properties file
-  //text.add
+function saveuser(){
+  //input.name, input.password){
+    debugger;
+    console.log("saveuser called: " + SignUpForm.username.value);
+    username = SignUpForm.username.value;
+    password = SignUpForm.password1.value;
+    var jsonObj = JSON.parse(text);
+    jsonObj.users.push({"username":username,"password":password});
+    text = JSON.stringify(jsonObj);
+    console.log(text);
+    debugger;
+}
+
+function loginuser(){
+  //input.name, input.password){
+    debugger;
+    console.log("loginuser called: " + signinform.username1.value);
+    username = signinform.username1.value;
+    password = signinform.password.value;
+    var jsonObj = JSON.parse(logindata);
+    if(jsonObj.users[username] == null){
+      console.log("No Such User! Wanna sign up?");
+    } else if(jsonObj.users[username] == password){
+      console.log("Logged in");
+    } else {
+      console.log("Incorrect Password! Tip: " + text);
+    }
+    debugger;
 }
 
 function showUser() {
   //read username and pwd;
-    text = '{"users":[{"username" : "gavin","password" : "password"}, {"username" : "atharva","password" : "password"}]}';
+    text = '{"users":[{"username" : "gavin","password" : "Password123#"}, {"username" : "atharva","password" : "Password123#"}]}';
     //JSON.parse(this.responseText);
-    var user = JSON.parse(text);
-    console.log("userDetails: " + user + "username: " + user.username);
+    var users = JSON.parse(text);
+    console.log("userDetails: " + users + "username: " + users.username);
   }
 
   function openPage(evt, pageName) {
