@@ -161,6 +161,13 @@ color: white;
 cursor: pointer;
 }
 
+#signupsubmit{
+background-color: darkgreen;
+padding: 7px;
+border-radius: 8px;
+color: white;
+cursor: pointer;
+}
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .leftcolumn {

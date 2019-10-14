@@ -43,7 +43,7 @@ var signUpbtn = document.getElementById("signUpbtn");
 
 function saveuser(){
   //input.name, input.password){
-    debugger;
+
     console.log("saveuser called: " + SignUpForm.username.value);
     username = SignUpForm.username.value;
     password = SignUpForm.password1.value;
@@ -51,15 +51,17 @@ function saveuser(){
     jsonObj.users.push({"username":username,"password":password});
     text = JSON.stringify(jsonObj);
     console.log(text);
-    debugger;
+    return false;
 }
 
 function loginuser(){
   //input.name, input.password){
-    debugger;
+    var signinform = document.getElementsByName('signinform')[0];
     console.log("loginuser called: " + signinform.username1.value);
     username = signinform.username1.value;
     password = signinform.password.value;
+    // signinform.submit();
+    //signinform.clear();
     var jsonObj = JSON.parse(logindata);
     if(jsonObj.users[username] == null){
       console.log("No Such User! Wanna sign up?");
@@ -68,7 +70,8 @@ function loginuser(){
     } else {
       console.log("Incorrect Password! Tip: " + text);
     }
-    debugger;
+    //signinform.reset();
+    return false;
 }
 
 function showUser() {
